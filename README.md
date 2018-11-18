@@ -4,9 +4,9 @@ This is a command line script that queries a database and prints reports.  It wa
 
 The three reports it executes are:
 
-- What is the most popular article in the database
-- Who are the most popular authors in the database
-- On what days were more than 1% of requests leading to errors
+- A ranking of the three most popular articles in the database
+- A ranking of the three most popular authors in the database
+- A listing of days when more than 1% of requests errored
 
 ## Quick start
 
@@ -20,10 +20,12 @@ Run the log analysis with `python3 reports.py`
 
 ## Example output
 
-This will print out to your console, three formatted reports that will look a bit like:
+This will print out to your console three formatted reports that will look a bit like:
 
+```text
 ========================= Most Popular Articles =========================
 
 Greysand Paranormal captures the Jersey Devil -- 345,002 views
 Charlie Cupid wins title belt at the Prominade Arena -- 258,862 views
 Dionne Gabraux to star in upcoming sequel, 'The 87' -- 100,120 views
+```
