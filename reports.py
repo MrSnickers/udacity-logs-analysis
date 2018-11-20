@@ -8,7 +8,7 @@ def connect():
     try:
         db = psycopg2.connect("dbname=news")
         cursor = db.cursor()
-        print ("connected")
+        print ("connected!")
         db.close()
         print ("closed!")
     except:
