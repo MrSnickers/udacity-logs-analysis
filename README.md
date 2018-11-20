@@ -28,4 +28,10 @@ This will print out to your console three formatted reports that will look a bit
 Greysand Paranormal captures the Jersey Devil -- 345,002 views
 Charlie Cupid wins title belt at the Prominade Arena -- 258,862 views
 Dionne Gabraux to star in upcoming sequel, 'The 87' -- 100,120 views
+
+========================= Most Popular Authors =========================
+
+Jack de Quidt -- 441,002 views
+Grand Magnificent -- 253,762 views
+Tawney Buck -- 100,120 views
 ```
