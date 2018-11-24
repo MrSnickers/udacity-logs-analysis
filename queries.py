@@ -1,0 +1,2 @@
+ARTICLES = "select articles.title, count(*) as views from articles inner join log on log.path like concat('%', articles.slug, '%') where log.status like '%200%' group by articles.title, log.path order by views desc limit 3"
+AUTHORS = "select articles.title, count(*) as views from articles inner join log on log.path like concat('%', articles.slug, '%') where log.status like '%200%' group by articles.title, log.path order by views desc limit 3"

@@ -3,20 +3,23 @@
 # Prints reports
 
 import psycopg2
+import queries
 
-def search():
+def get_db(name):
+    db = psycopg2.connect("dbname=%s" % name)
+    return db
+
+def get_results(db):
     try:
-        db = psycopg2.connect("dbname=news")
         cursor = db.cursor()
-        print ("connected!")
-        cursor.execute("select articles.title, count(*) as views from articles inner join log on log.path like concat('%', articles.slug, '%') where log.status like '%200%' group by articles.title, log.path order by views desc limit 3")
+        cursor.execute(queries.ARTICLES)
         results = cursor.fetchall()
-        db.close()
         print(results)
         return results
     except:
         print ("Not connected")
 
-
 if __name__ == '__main__':
-    search()
+    db = get_db("news")
+    get_results(db)
+    db.close()
