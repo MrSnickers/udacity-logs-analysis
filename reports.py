@@ -14,20 +14,30 @@ def get_results(db, query):
         cursor = db.cursor()
         cursor.execute(query)
         results = cursor.fetchall()
-        print(results)
         return results
     except Exception as exception:
         print (exception)
 
-def print_results(title, query_results):
+def print_views(title, query_results):
     print("========================= %s =========================" % title)
-    for results in query_results:
-        print ( "\t", results[0], "--", str(results[1]), "views")
+    for result in query_results:
+        name = result[0]
+        number_of_views = str(result[1])
+        print ( "\t %s  -- %s views" % (name, number_of_views))
+
+def print_percentages(title, query_results):
+    print("========================= %s =========================" % title)
+    for result in query_results:
+        date = result[0]
+        number_of_errors = str(result[1])
+        print ( "\t %s  -- %s %% errors" % (date, number_of_errors))
 
 
 if __name__ == '__main__':
     db = get_db("news")
-    print_results(constants.ARTICLES_TITLE, get_results(db, constants.ARTICLES_QUERY))
+    print_views(constants.ARTICLES_TITLE, get_results(db, constants.ARTICLES_QUERY))
     print("\n")
-    print_results(constants.AUTHORS_TITLE, get_results(db, constants.AUTHORS_QUERY))
+    print_views(constants.AUTHORS_TITLE, get_results(db, constants.AUTHORS_QUERY))
+    print("\n")
+    print_percentages(constants.ERRORS_TITLE, get_results(db, constants.ERRORS_QUERY))
     db.close()
